@@ -59,3 +59,4 @@ ggplot(data = plotDf, aes(x=value, fill=Subtype_IHC))+
   facet_wrap(~variable)+
   theme(legend.position="none")
 ```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/histograms.JPG)
