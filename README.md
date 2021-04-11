@@ -60,3 +60,40 @@ ggplot(data = plotDf, aes(x=value, fill=Subtype_IHC))+
   theme(legend.position="none")
 ```
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/histograms.JPG)
+
+```R
+###__PCA analysis to see how samples cluster togather_____##
+
+
+# Imputing data for missing ones
+new_df <- imputePCA(new_df[,-1], ncp = 2)
+new_df <- new_df$completeObs
+new_df <- data.frame(cbind(data2017[,c(1:9)], new_df))
+
+# doing PCA
+new.pca <- PCA(new_df[,c(10:40)], graph = FALSE)
+
+
+fviz_pca_ind(new.pca,
+             geom.ind = "point", # show points only (nbut not "text")
+             col.ind = new_df$Subtype_IHC, # color by groups
+             palette = "jco",
+             addEllipses = TRUE, # Concentration ellipses
+             legend.title = "Groups")
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca1.JPG)
+
+```R
+
+# making a subset: uro + basal
+binary_df <- new_df[which(new_df$Subtype_IHC == "BaSq" | new_df$Subtype_IHC == "Uro"),]
+new.pca <- PCA(binary_df[,c(10:40)], graph = FALSE)
+
+fviz_pca_ind(new.pca,
+             geom.ind = "point", # show points only (nbut not "text")
+             col.ind = binary_df$Subtype_IHC, # color by groups
+             palette = "jco",
+             addEllipses = TRUE, # Concentration ellipses
+             legend.title = "Groups")
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca2.JPG)
