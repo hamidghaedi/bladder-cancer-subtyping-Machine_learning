@@ -97,3 +97,16 @@ fviz_pca_ind(new.pca,
              legend.title = "Groups")
 ```
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca2.JPG)
+
+```R
+# to see contribution of each variables to PCs
+fviz_eig(new.pca, addlabels = TRUE, ylim = c(0, 30))
+#
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/scree_plot.JPG) 
+```R
+# correlation plot to see how features contributed to PCs
+var <- get_pca_var(new.pca)
+corrplot(var$cos2, is.corr=FALSE)
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrplot.JPG) 
