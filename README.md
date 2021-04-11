@@ -2,9 +2,9 @@
 IHC based classifier to predict major subtype of bladder cancer:
 
 Using available dataset on ~30 proteins in ~300 samples from advanced bladder cancer tissue, a decision tree classifer model was made. The general steps that I followed to create these classifers are as:
-### 1- data exploratory analysis (in R)
-### 2- feature selection by ROC analysis (in R)
-### 3- Creating a decision tree multiclass classifer (by sklearn library in Python) 
+#### 1- Data exploratory analysis (in R)
+#### 2- Feature selection by ROC analysis (in R)
+#### 3- Creating a decision tree multiclass classifer (by sklearn library in Python) 
 ___________________________________________________________________________________________________________________________________________________________________
 
 ## 1- Data exploratory analysis
@@ -110,3 +110,7 @@ var <- get_pca_var(new.pca)
 corrplot(var$cos2, is.corr=FALSE)
 ```
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrplot.JPG) 
+
+___________________________________________________________________________________________________________________________________________________________________
+
+## 2- Feature selection by ROC analysis (in R)
