@@ -1,4 +1,4 @@
-# bladder-cancer-tumour-cell-phenotype-classification
+# bladder-cancer-tumour-cell-phenotype-classifiers
 IHC based classifier to predict major subtype of bladder cancer:
 
 Using available dataset on ~30 proteins in ~300 samples from advanced bladder cancer tissue, a decision tree classifer model was made. The general steps that I followed to create these classifers are as:
