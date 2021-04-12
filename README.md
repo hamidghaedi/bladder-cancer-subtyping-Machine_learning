@@ -113,4 +113,132 @@ corrplot(var$cos2, is.corr=FALSE)
 
 ___________________________________________________________________________________________________________________________________________________________________
 
-## 2- Feature selection (in R)
+## 2- Feature selection 
+
+In order to identify which features can potentially be useful to classify samples into diffrent subtypes a set of binay ROC analysis were performed. 
+
+```R
+#
+data2017 <- data.frame(data.table::fread("4.JPath2017_PtLevel.csv", header=T, sep=",", ))
+
+#
+data2017 <- data2017[-which(data2017$Subtype_IHC == "N/A"),]
+
+table(data2017$Subtype_IHC)
+
+# convert preotein expression value to numeric vectors
+for (i in 11:length(colnames(data2017))){
+  data2017[,i] <- as.numeric(data2017[,i])
+}
+
+
+UroBasalGu_2017 <- data2017[which(data2017$Subtype_IHC == "BaSq" | data2017$Subtype_IHC == "GU" |data2017$Subtype_IHC == "Uro"),]
+
+# Uro+GU = Luminal
+LumBas_2017 <-UroBasalGu_2017
+LumBas_2017$Subtype_IHC <- ifelse(LumBas_2017$Subtype_IHC == "BaSq", "basal", "luminal")
+
+table(LumBas_2017$Subtype_IHC)
+
+#basal luminal 
+#57     304 
+prop.table(table(LumBas_2017$Subtype_IHC))
+#basal   luminal 
+#0.1578947 0.8421053
+
+
+
+library(pROC)
+
+proteins <- names(LumBas_2017)[11:41]
+# define empty vectors for auc, protein name
+auc <-c()
+protein_name <- c()
+auc_ci_ll <- c()
+auc_ci_ul <- c()
+
+
+for (i in 1:length(proteins)){
+  df <- data.frame(subtype = as.factor(LumBas_2017$Subtype_IHC), 
+                   prot = as.numeric(LumBas_2017[,proteins[i]]))
+  names(df)[2] <- proteins[i]
+  d <- roc(subtype ~ df[,2], data=df, percent = TRUE, ci = TRUE, auc= TRUE)
+  protein_name[i] <- proteins[i]
+  auc[i] <- d$auc
+  auc_ci_ll[i] <- round(data.frame(d$ci)[1,],2)
+  auc_ci_ul[i] <- round(data.frame(d$ci)[3,],2)
+}
+
+LumBas_2017_auc <- data.frame(protein = protein_name,
+                              AUC = auc,
+                              LL_CI =auc_ci_ll ,
+                              UL_CI = auc_ci_ul)
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/luminal_basal_auc.JPG)
+```R
+
+
+UroGu_2017 <- UroBasalGu_2017[-which(UroBasalGu_2017$Subtype_IHC == "BaSq"),]
+
+proteins_UroGu <- names(UroGu_2017)[11:41]
+
+# for loop
+# define empty vectors for auc, protein name
+auc <-c()
+protein_name <- c()
+auc_ci_ll <- c()
+auc_ci_ul <- c()
+
+
+for (i in 1:length(proteins_UroGu)){
+  df <- data.frame(subtype = as.factor(UroGu_2017$Subtype_IHC), 
+                   prot = as.numeric(UroGu_2017[,proteins_UroGu[i]]))
+  names(df)[2] <- proteins_UroGu[i]
+  d <- roc(subtype ~ df[,2], data=df, percent = TRUE, ci = TRUE, auc= TRUE)
+  protein_name[i] <- proteins_UroGu[i]
+  auc[i] <- d$auc
+  auc_ci_ll[i] <- round(data.frame(d$ci)[1,],2)
+  auc_ci_ul[i] <- round(data.frame(d$ci)[3,],2)
+}
+
+UroGu_2017_auc <- data.frame(protein = protein_name,
+                             AUC = auc,
+                             LL_CI =auc_ci_ll ,
+                             UL_CI = auc_ci_ul)
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/uroGuAUC.JPG)
+
+```R
+GuBas_2017 <- UroBasalGu_2017[-which(UroBasalGu_2017$Subtype_IHC == "Uro"),]
+
+
+proteins_GuBas <- names(GuBas_2017)[11:41]
+
+# for loop
+# define empty vectors for auc, protein name
+auc <-c()
+protein_name <- c()
+auc_ci_ll <- c()
+auc_ci_ul <- c()
+
+
+for (i in 1:length(proteins_GuBas)){
+  df <- data.frame(subtype = as.factor(GuBas_2017$Subtype_IHC), 
+                   prot = as.numeric(GuBas_2017[,proteins_GuBas[i]]))
+  names(df)[2] <- proteins_GuBas[i]
+  d <- roc(subtype ~ df[,2], data=df, percent = TRUE, ci = TRUE, auc= TRUE)
+  protein_name[i] <- proteins_GuBas[i]
+  auc[i] <- d$auc
+  auc_ci_ll[i] <- round(data.frame(d$ci)[1,],2)
+  auc_ci_ul[i] <- round(data.frame(d$ci)[3,],2)
+}
+
+GuBas_2017_auc <- data.frame(protein = protein_name,
+                             AUC = auc,
+                             LL_CI =auc_ci_ll ,
+                             UL_CI = auc_ci_ul)
+
+
+```
+
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/GU_Basal_AUC.JPG)
