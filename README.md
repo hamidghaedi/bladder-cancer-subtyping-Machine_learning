@@ -245,4 +245,189 @@ GuBas_2017_auc <- data.frame(protein = protein_name,
 
 ___________________________________________________________________________________________________________________________________________________________________
 ## 3- Creating a decision tree multiclass classifer
+Making a multiclass decision tree classifier 
 
+```python
+# Import libraries
+import numpy as np
+import pandas as pd
+import os as os 
+
+#reading dataset
+data = pd.read_csv("4.JPath2017_PtLevel.csv")
+data.head()
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/dataset_1.JPG)
+
+```python
+# Review missing data in the demographic information
+print(data.isnull().sum())
+
+#TMA#                      0
+#Age                       0
+#Sex                       0
+#Grade                     6
+#Stage                     1
+#Clinical stage           28
+#Hyb#                    118
+#Subtype_LundTax_RNA     120
+#Subtype_IHC              31
+#CK5_Pattern_Bernardo    175
+#CCNB1                     9
+#CCND1                     4
+#CD3density                2
+#CD68density               0
+#CDH1                      5
+#CDH3                      8
+#CDKN2Ap16                 8
+#CHGA                     15
+#E2F3                      6
+#EGFR                     25
+#EPCAM                    16
+#ERBB2                     8
+#ERBB3                     7
+#FGFR3                    24
+#FOXA1                    21
+#FOXM1                    11
+#GATA3                     8
+#KRT14                     5
+#KRT20                    25
+#KRT5                      6
+#NCAM1                     7
+#PPARG                     3
+#pSTAT3                    7
+#RB1                       8
+#RXRA                      6
+#SYP                      12
+#TP63                      5
+#TUBB2B                   20
+#UPK3                     22
+#VIM                      18
+#ZEB2                     30
+#dtype: int64
+
+# dropping NAs from Subtype_IHC
+data = data.dropna(subset=['Subtype_IHC'])
+#print(data.isnull().sum())
+
+print(data.shape)
+#(394, 41)
+
+# slicing based on columns
+d = data.iloc[:, 10:41]
+
+# imputing missing values by mean of columns
+d.fillna(d.mean(), inplace = True)
+
+#print(d.isnull().sum())
+
+# replace a part of data farme by othe dataframe
+data.iloc[:, 0:9]
+
+data = pd.concat([data.iloc[:, 0:9], d], axis=1)
+
+#print(data.isnull().sum())
+
+# drop values from subtype_IHC column
+data = data.drop(data[(data['Subtype_IHC'] == 'Mes-L') | (data['Subtype_IHC'] == 'Sc/NE')].index)
+
+# feature selection based on ROC analysis:
+## KRT14, KRT5, CDH3, FOXA1, GATA3, PPARG for Uro vs. Bas
+## RB1 , CCND1, CDKN2Ap16, FGFR3
+
+corrmat = data[["Subtype_IHC", "KRT14", "KRT5", "CDH3", "FOXA1", "GATA3", "PPARG", "RB1" , "CCND1", "CDKN2Ap16", "FGFR3", "TP63"]].corr()
+# visualization 
+import seaborn as sn
+import matplotlib.pyplot as plt
+sn.heatmap(corrmat, annot=True)
+plt.show()
+```
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrmat.JPG)
+
+```python
+#Making classifiers based on selected features
+X = data[["KRT14", "KRT5", "RB1"]].values
+y = data.iloc[:,8].values
+#y
+# encode IHC subtype as a dummy variable
+y,class_names = pd.factorize(y)
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, stratify=y, random_state = 42)
+
+# Fitting Classifier to the Training Set
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion='entropy',max_depth=3, random_state=42)
+classifier.fit(X_train, y_train)
+
+#DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=42)
+
+# Model performance on training set
+y_pred_train =classifier.predict(X_train)
+
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix, classification_report
+
+accuracy = metrics.accuracy_score(y_train, y_pred_train)
+print("Accuracy: {:.2f}".format(accuracy))
+cm=confusion_matrix(y_train,y_pred_train)
+print('Confusion Matrix: \n', cm)
+print(classification_report(y_train, y_pred_train))
+```
+Accuracy: 0.92
+Confusion Matrix: 
+ [[ 38   5   0]
+ [  0 143   3]
+ [  0  13  68]]
+              precision    recall  f1-score   support
+
+           0       1.00      0.88      0.94        43
+           1       0.89      0.98      0.93       146
+           2       0.96      0.84      0.89        81
+
+    accuracy                           0.92       270
+   macro avg       0.95      0.90      0.92       270
+weighted avg       0.93      0.92      0.92       270
+
+```python
+# Predicting the test results
+y_pred=classifier.predict(X_test)
+
+# Classification results on test set
+from sklearn import metrics
+accuracy = metrics.accuracy_score(y_test, y_pred)
+print("Accuracy: {:.2f}".format(accuracy))
+
+from sklearn.metrics import confusion_matrix, classification_report
+cm=confusion_matrix(y_test,y_pred)
+print('Confusion Matrix: \n', cm)
+print(classification_report(y_test, y_pred))
+```
+Accuracy: 0.89
+Confusion Matrix: 
+ [[11  3  0]
+ [ 0 49  0]
+ [ 2  5 21]]
+              precision    recall  f1-score   support
+
+           0       0.85      0.79      0.81        14
+           1       0.86      1.00      0.92        49
+           2       1.00      0.75      0.86        28
+
+    accuracy                           0.89        91
+   macro avg       0.90      0.85      0.87        91
+weighted avg       0.90      0.89      0.89        91
+
+```python
+# Visualize the tree by graphiz
+import graphviz
+from sklearn import tree
+from IPython.display import Image
+from IPython.display import Image  
+
+feature_names = ["KRT14", "KRT5","RB1" ]
+dot_data = tree.export_graphviz(classifier, out_file=None, filled=True,feature_names = feature_names, rounded = True, class_names=class_names)
+graph = graphviz.Source(dot_data)
+graph
+#graph.render('round-table.pdf', view=True)  
