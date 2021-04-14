@@ -404,6 +404,7 @@ cm=confusion_matrix(y_test,y_pred)
 print('Confusion Matrix: \n', cm)
 print(classification_report(y_test, y_pred))
 ```
+```python
 Accuracy: 0.89
 Confusion Matrix: 
  [[11  3  0]
@@ -418,6 +419,8 @@ Confusion Matrix:
     accuracy                           0.89        91
    macro avg       0.90      0.85      0.87        91
 weighted avg       0.90      0.89      0.89        91
+```
+
 
 ```python
 # Visualize the tree by graphiz
