@@ -375,20 +375,20 @@ cm=confusion_matrix(y_train,y_pred_train)
 print('Confusion Matrix: \n', cm)
 print(classification_report(y_train, y_pred_train))
 ```
-Accuracy: 0.92
-Confusion Matrix: 
- [[ 38   5   0]
- [  0 143   3]
- [  0  13  68]]
-              precision    recall  f1-score   support
-
-           0       1.00      0.88      0.94        43
-           1       0.89      0.98      0.93       146
-           2       0.96      0.84      0.89        81
-
-    accuracy                           0.92       270
-   macro avg       0.95      0.90      0.92       270
-weighted avg       0.93      0.92      0.92       270
+#Accuracy: 0.92
+#Confusion Matrix: 
+# [[ 38   5   0]
+# [  0 143   3]
+# [  0  13  68]]
+#              precision    recall  f1-score   support
+#
+#           0       1.00      0.88      0.94        43
+#           1       0.89      0.98      0.93       146
+#           2       0.96      0.84      0.89        81
+#
+#    accuracy                           0.92       270
+#   macro avg       0.95      0.90      0.92       270
+#weighted avg       0.93      0.92      0.92       270
 
 ```python
 # Predicting the test results
