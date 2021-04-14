@@ -375,6 +375,7 @@ cm=confusion_matrix(y_train,y_pred_train)
 print('Confusion Matrix: \n', cm)
 print(classification_report(y_train, y_pred_train))
 ```
+```python
 #Accuracy: 0.92
 #Confusion Matrix: 
 # [[ 38   5   0]
@@ -389,6 +390,7 @@ print(classification_report(y_train, y_pred_train))
 #    accuracy                           0.92       270
 #   macro avg       0.95      0.90      0.92       270
 #weighted avg       0.93      0.92      0.92       270
+```
 
 ```python
 # Predicting the test results
