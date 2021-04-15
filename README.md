@@ -32,7 +32,7 @@ ________________________________________________________________________________
 
 ## 2- Feature selection 
 
-In order to identify which features can potentially be useful to classify samples into diffrent subtypes a set of binay ROC analysis were performed. 
+In order to identify which features can potentially be useful to classify samples into different subtypes a set of binay ROC analysis were performed. 
 
 
 ###### Lum vs. Bas AUC result
