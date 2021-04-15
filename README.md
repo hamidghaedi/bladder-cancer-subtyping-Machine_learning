@@ -244,7 +244,7 @@ GuBas_2017_auc <- data.frame(protein = protein_name,
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/GU_Basal_AUC.JPG)
 
 ___________________________________________________________________________________________________________________________________________________________________
-## 3- Creating a decision tree multiclass classifer
+## 3- Creating decision tree multiclass classifers
 Making a multiclass decision tree classifier 
 
 ```python
