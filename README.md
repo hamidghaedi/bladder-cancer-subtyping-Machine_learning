@@ -245,7 +245,10 @@ GuBas_2017_auc <- data.frame(protein = protein_name,
 
 ___________________________________________________________________________________________________________________________________________________________________
 ## 3- Creating decision tree multiclass classifers
-Making a multiclass decision tree classifier 
+Considering AUC analysis these markers found to do good job in classifying subtypes: 
+
+"KRT14", "KRT5", "CDH3", "FOXA1", "GATA3", "PPARG", "RB1" , "CCND1", "CDKN2Ap16", "FGFR3", "TP63"
+
 
 ```python
 # Import libraries
@@ -376,6 +379,7 @@ print('Confusion Matrix: \n', cm)
 print(classification_report(y_train, y_pred_train))
 ```
 ```python
+#___________________Model performance on training set_________________________#
 #Accuracy: 0.92
 #Confusion Matrix: 
 # [[ 38   5   0]
@@ -407,6 +411,7 @@ print('Confusion Matrix: \n', cm)
 print(classification_report(y_test, y_pred))
 ```
 ```python
+#___________________Model performance on test set_________________________#
 Accuracy: 0.89
 Confusion Matrix: 
  [[11  3  0]
