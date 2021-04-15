@@ -90,20 +90,20 @@ Considering AUC analysis,  these markers found to do good job in classifying sub
 
 ```python
 #___________________Model performance on test set_________________________#
-Accuracy: 0.89
-Confusion Matrix: 
- [[11  3  0]
- [ 0 49  0]
- [ 2  5 21]]
-              precision    recall  f1-score   support
-
-           0       0.85      0.79      0.81        14
-           1       0.86      1.00      0.92        49
-           2       1.00      0.75      0.86        28
-
-    accuracy                           0.89        91
-   macro avg       0.90      0.85      0.87        91
-weighted avg       0.90      0.89      0.89        91
+#Accuracy: 0.89
+#Confusion Matrix: 
+# [[11  3  0]
+# [ 0 49  0]
+# [ 2  5 21]]
+#              precision    recall  f1-score   support
+#
+#           0       0.85      0.79      0.81        14
+#           1       0.86      1.00      0.92        49
+#           2       1.00      0.75      0.86        28
+#
+#    accuracy                           0.89        91
+#   macro avg       0.90      0.85      0.87        91
+# weighted avg       0.90      0.89      0.89        91
 ```
 
 #### tree visualization
