@@ -8,23 +8,23 @@ ________________________________________________________________________________
 
 ## 1- Data exploratory analysis
 
-##### variables data distribution/shape
+#### variables data distribution/shape
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/histograms.JPG)
 
-##### How samples cluster together
-###### all subtypes
+#### How samples cluster together
+##### all subtypes
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca1.JPG)
 
-###### uro vs basal
+##### uro vs basal
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca2.JPG)
 
-###### contribution of each variables to PCs
+##### contribution of each variables to PCs
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/scree_plot.JPG) 
 
-###### What features contributed to each PCs
+##### What features contributed to each PCs
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrplot.JPG) 
 
@@ -35,16 +35,16 @@ ________________________________________________________________________________
 In order to identify which features can potentially be useful to classify samples into different subtypes a set of binay ROC analysis were performed. 
 
 
-###### Lum vs. Bas AUC result
+##### Lum vs. Bas AUC result
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/luminal_basal_auc.JPG)
 
-###### Uro vs. Gu AUC result
+##### Uro vs. Gu AUC result
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/uroGuAUC.JPG)
 
 
-###### Gu vs. Bas AUC result
+##### Gu vs. Bas AUC result
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/GU_Basal_AUC.JPG)
 
@@ -55,23 +55,27 @@ Considering AUC analysis,  these markers found to do good job in classifying sub
 
 "KRT14", "KRT5", "CDH3", "FOXA1", "GATA3", "PPARG", "RB1" , "CCND1", "CDKN2Ap16", "FGFR3", "TP63"
 
-###### a look at the dataset
+##### a look at the dataset
 
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/dataset_1.JPG)
 
-###### correlation matrix
+##### correlation matrix
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrmat.JPG)
 
-###### Model result
+##### Model result
 ```python
 #___________________Model performance on training set_________________________#
+## sample encoding : 0 = Basal, 1= Uro, 2 = GU
+
 #Accuracy: 0.92
 #Confusion Matrix: 
+
 # [[ 38   5   0]
 # [  0 143   3]
 # [  0  13  68]]
+
 #              precision    recall  f1-score   support
 #
 #           0       1.00      0.88      0.94        43
@@ -102,4 +106,4 @@ Confusion Matrix:
 weighted avg       0.90      0.89      0.89        91
 ```
 
-###### tree visualization
+#### tree visualization
