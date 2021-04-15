@@ -116,6 +116,10 @@ Considering AUC analysis,  these markers found to do good job in classifying sub
 # 0.8461538461538461]
 
 # best accuracy achived with depth 2! 
+```
 
+# feature importance:
+
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/feature_importance.JPG)
 
 #### tree visualization
