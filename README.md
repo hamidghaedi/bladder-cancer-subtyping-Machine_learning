@@ -20,7 +20,7 @@ ________________________________________________________________________________
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca2.JPG)
 
-##### contribution of each variables to PCs
+##### How PCs contribute to the observed variance
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/scree_plot.JPG) 
 
