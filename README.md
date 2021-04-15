@@ -106,4 +106,16 @@ Considering AUC analysis,  these markers found to do good job in classifying sub
 # weighted avg       0.90      0.89      0.89        91
 ```
 
+````python
+# Tuning the depth of the trees,
+# accuracy for the model from depth 1 to 5:
+#[0.7912087912087912,
+# 0.8681318681318682,
+# 0.8461538461538461,
+# 0.8461538461538461,
+# 0.8461538461538461]
+
+# best accuracy achived with depth 2! 
+
+
 #### tree visualization
