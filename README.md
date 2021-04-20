@@ -4,6 +4,7 @@ Using the available dataset on ~30 proteins in ~300 samples from advanced bladde
 #### 1- Data exploratory analysis 
 #### 2- Feature selection by ROC analysis 
 #### 3- Creating a decision tree multiclass classifier 
+
 ___________________________________________________________________________________________________________________________________________________________________
 
 ## 1- Data exploratory analysis
@@ -14,20 +15,18 @@ ________________________________________________________________________________
 
 #### How samples cluster together
 ##### all subtypes
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG)
-
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG" width="700" height="500">
 ##### uro vs basal
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG)
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG" width="700" height="500">
 
 ##### How PCs contribute to the observed variance
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/scree_plot.JPG) 
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/scree_plot.JPG" width="700" height="500">
 
 ##### What features contributed to each PCs
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrplot.JPG) 
-
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrplot.JPG" width="300" height="800">
 ___________________________________________________________________________________________________________________________________________________________________
 
 ## 2- Feature selection 
@@ -35,20 +34,14 @@ ________________________________________________________________________________
 In order to identify which features can potentially be useful to classify samples into different subtypes a set of binary ROC analyses were performed. 
 
 
-##### Lum vs. Bas AUC result
-
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/luminal_basal_auc.JPG)
-
-##### Uro vs. Gu AUC result
-
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/uroGuAUC.JPG)
+##### AUC result
 
 
-##### Gu vs. Bas AUC result
+Lum vs. Bas                |  Uro vs. Gu               |  Gu vs. Bas
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/luminal_basal_auc.JPG)  |  ![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/uroGuAUC.JPG) | ![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/GU_Basal_AUC.JPG) 
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/GU_Basal_AUC.JPG)
-
-___________________________________________________________________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________
 ## 3- Creating decision tree multiclass classifiers
 
 Considering AUC analysis,  these markers found to do a good job in classifying subtypes: 
