@@ -10,23 +10,23 @@ ________________________________________________________________________________
 
 #### variables data distribution/shape
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/histograms.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/histograms.JPG)
 
 #### How samples cluster together
 ##### all subtypes
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca1.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG)
 
 ##### uro vs basal
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/pca2.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG)
 
 ##### How PCs contribute to the observed variance
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/scree_plot.JPG) 
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/scree_plot.JPG) 
 
 ##### What features contributed to each PCs
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrplot.JPG) 
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrplot.JPG) 
 
 ___________________________________________________________________________________________________________________________________________________________________
 
@@ -37,16 +37,16 @@ In order to identify which features can potentially be useful to classify sample
 
 ##### Lum vs. Bas AUC result
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/luminal_basal_auc.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/luminal_basal_auc.JPG)
 
 ##### Uro vs. Gu AUC result
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/uroGuAUC.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/uroGuAUC.JPG)
 
 
 ##### Gu vs. Bas AUC result
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/GU_Basal_AUC.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/GU_Basal_AUC.JPG)
 
 ___________________________________________________________________________________________________________________________________________________________________
 ## 3- Creating decision tree multiclass classifiers
@@ -58,11 +58,11 @@ Considering AUC analysis,  these markers found to do a good job in classifying 
 ##### a look at the dataset
 
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/dataset_1.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/dataset_1.JPG)
 
 ##### correlation matrix
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/corrmat.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrmat.JPG)
 
 ##### Model result
 ```python
@@ -118,7 +118,7 @@ Considering AUC analysis,  these markers found to do a good job in classifying 
 ````
 #### feature importance:
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/feature_importance.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/feature_importance.JPG)
 
 #### tree visualization [to be added]
 
