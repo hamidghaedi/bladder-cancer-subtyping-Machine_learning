@@ -14,11 +14,10 @@ ________________________________________________________________________________
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/histograms.JPG)
 
 #### How samples cluster together
-##### all subtypes
-<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG" width="700" height="500">
-##### uro vs basal
 
-<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG" width="700" height="500">
+All sample                 |  Uro vs. BaSq
+:-------------------------:|:-------------------------:
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG" width="800" height="500">  |  <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG" width="800" height="500">
 
 ##### How PCs contribute to the observed variance
 
