@@ -122,9 +122,5 @@ Considering AUC analysis,  these markers found to do a good job in classifying 
 
 #### tree visualization [to be added]
 
--- 
-***Hamid Ghaedi
-Medical Geneticist(Ph.D.)Post Doctoral Fellow
-Department of Pathology & Molecular MedicineQueen's University, Kingston, ON, Canada.
 
 *
