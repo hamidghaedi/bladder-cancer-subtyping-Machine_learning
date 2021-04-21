@@ -111,9 +111,13 @@ weighted avg       0.87      0.86      0.85        91
 ### Visualization of the decision tree
 <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/decision_tree_1.JPG">
 
-#### Finding the otimal tree depth by cross validation
+#### Finding the optimal tree depth by cross validation
+Best depth based on the cross validation accuracy apears to be three. 
 <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/tree%20depth.JPG" width="800" height="400">
 
-#### feature importance:
+####  Multiclass AUC analysis:
+ To assess the performance of the classifier another measure that I wanted to use is AUC. 
 
-![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/feature_importance.JPG)
+![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/AUC_1.JPG)
+
+
