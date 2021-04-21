@@ -7,7 +7,7 @@
 ##### 2- Feature selection by ROC analysis 
 ##### 3- Creating a decision tree multiclass classifier 
 
-___________________________________________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
 
 ## 1- Data exploratory analysis
 
@@ -22,15 +22,7 @@ All sample                 |  Uro vs. BaSq
 :-------------------------:|:-------------------------:
 <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca1.JPG" width="800" height="500">  |  <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/pca2.JPG" width="800" height="500">
 
-##### How PCs contribute to the observed variance
-
-<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/scree_plot.JPG" width="700" height="500">
-
-##### What features contributed to each PCs
-
-<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrplot.JPG" width="300" height="800">
-___________________________________________________________________________________________________________________________________________________________________
-
+___________________________________________________________________________________________________________________________________
 ## 2- Feature selection 
 
 In order to identify which features can potentially be useful to classify samples into different subtypes a set of binary ROC analyses were performed. 
@@ -43,7 +35,7 @@ Lum vs. Bas                |  Uro vs. Gu               |  Gu vs. Bas
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/luminal_basal_auc.JPG)  |  ![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/uroGuAUC.JPG) | ![](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/GU_Basal_AUC.JPG) 
 
-__________________________________________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
 ## 3- Creating decision tree multiclass classifiers
 
 Considering AUC analysis,  these markers found to do a good job in classifying subtypes: 
