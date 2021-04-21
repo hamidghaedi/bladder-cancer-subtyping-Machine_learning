@@ -187,7 +187,29 @@ weighted avg       0.91      0.90      0.90        91
 ### Reduced feature decision tree visualization 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/decision%20tree2.JPG)
 
-####  Multiclass AUC analysis for reduced feature decision tree
- To assess the performance of the classifier another measure that I wanted to use is AUC. 
+####  Multiclass AUC analysis for the reduced feature decision tree
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/AUC_2.JPG)
+
+### model performance of the NMIBC data
+
+```python
+
+
+Classification results on validation set
+Accuracy: 0.90
+Confusion Matrix: 
+ [[  6   1   1]
+ [  0 186   6]
+ [  0  17  38]]
+              precision    recall  f1-score   support
+
+           0       1.00      0.75      0.86         8
+           1       0.91      0.97      0.94       192
+           2       0.84      0.69      0.76        55
+
+    accuracy                           0.90       255
+   macro avg       0.92      0.80      0.85       255
+weighted avg       0.90      0.90      0.90       255
+
+```
