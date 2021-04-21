@@ -183,7 +183,7 @@ weighted avg       0.91      0.90      0.90        91
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/AUC_2.JPG)
 
-### model performance of the NMIBC data
+### The model performance of the NMIBC data
 
 ```python
 
