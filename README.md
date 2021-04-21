@@ -1,15 +1,18 @@
 # bladder-cancer-tumour-cell-phenotype-classifiers
-IHC based classifiers to predict major subtype of bladder cancer:
-Using the available dataset on ~30 proteins in ~300 samples from advanced bladder cancer tissue, a decision tree classifier model was made. The general steps that I followed to create these classifiers are as follows:
-#### 1- Data exploratory analysis 
-#### 2- Feature selection by ROC analysis 
-#### 3- Creating a decision tree multiclass classifier 
+
+#### Decision tree classifier to predict major subtypes of muscle invasive bladder cancer using IHC data
+
+#### Steps:
+##### 1- Data exploratory analysis 
+##### 2- Feature selection by ROC analysis 
+##### 3- Creating a decision tree multiclass classifier 
 
 ___________________________________________________________________________________________________________________________________________________________________
 
 ## 1- Data exploratory analysis
 
-#### variables data distribution/shape
+#### variables data distribution/shape. 
+Those markers which shows distinct pattern for each subgroups might worth to have them as feature in making the classifier. 
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/histograms.JPG)
 
@@ -47,72 +50,70 @@ Considering AUC analysis,  these markers found to do a good job in classifying 
 
 "KRT14", "KRT5", "CDH3", "FOXA1", "GATA3", "PPARG", "RB1" , "CCND1", "CDKN2Ap16", "FGFR3", "TP63"
 
-##### a look at the dataset
+##### A look at the dataset
 
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/dataset_1.JPG)
 
-##### correlation matrix
+##### Correlation matrix
+This would be helpful to reduce the feature number by keeping one feature from a set of highly correlated (r >= .8) features.
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrmat.JPG)
 
 ##### Model result
 ```python
 #___________________Model performance on training set_________________________#
-## sample encoding : 0 = Basal, 1= Uro, 2 = GU
+subtypes codes
+  Code  Subtype
+------  ---------
+     0  BaSq
+     1  Uro
+     2  GU
 
-#Accuracy: 0.92
-#Confusion Matrix: 
+Classification results on training set
+Accuracy: 0.93
+Confusion Matrix: 
+ [[ 37   6   0]
+ [  0 146   0]
+ [  0  14  67]]
+              precision    recall  f1-score   support
 
-# [[ 38   5   0]
-# [  0 143   3]
-# [  0  13  68]]
+           0       1.00      0.86      0.92        43
+           1       0.88      1.00      0.94       146
+           2       1.00      0.83      0.91        81
 
-#              precision    recall  f1-score   support
-#
-#           0       1.00      0.88      0.94        43
-#           1       0.89      0.98      0.93       146
-#           2       0.96      0.84      0.89        81
-#
-#    accuracy                           0.92       270
-#   macro avg       0.95      0.90      0.92       270
-#weighted avg       0.93      0.92      0.92       270
+    accuracy                           0.93       270
+   macro avg       0.96      0.90      0.92       270
+weighted avg       0.93      0.93      0.93       270
 ```
 
 
 ```python
-#___________________Model performance on test set_________________________#
-#Accuracy: 0.89
-#Confusion Matrix: 
-# [[11  3  0]
-# [ 0 49  0]
-# [ 2  5 21]]
-#              precision    recall  f1-score   support
-#
-#           0       0.85      0.79      0.81        14
-#           1       0.86      1.00      0.92        49
-#           2       1.00      0.75      0.86        28
-#
-#    accuracy                           0.89        91
-#   macro avg       0.90      0.85      0.87        91
-# weighted avg       0.90      0.89      0.89        91
-```
 
-````python
-# Tuning the depth of the trees,
-# accuracy for the model from depth 1 to 5:
-#[0.7912087912087912,
-# 0.8681318681318682,
-# 0.8461538461538461,
-# 0.8461538461538461,
-# 0.8461538461538461]
-# best accuracy achived with depth 2! 
-````
+#___________________Model performance on test set_________________________#
+Classification results on test set
+Accuracy: 0.86
+Confusion Matrix: 
+ [[10  3  1]
+ [ 0 49  0]
+ [ 1  8 19]]
+              precision    recall  f1-score   support
+
+           0       0.91      0.71      0.80        14
+           1       0.82      1.00      0.90        49
+           2       0.95      0.68      0.79        28
+
+    accuracy                           0.86        91
+   macro avg       0.89      0.80      0.83        91
+weighted avg       0.87      0.86      0.85        91
+
+```
+### Visualization of the decision tree
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/decision_tree_1.JPG">
+
+#### Finding the otimal tree depth by cross validation
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/tree%20depth.JPG" width="400" height="800">
+
 #### feature importance:
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/feature_importance.JPG)
-
-#### tree visualization [to be added]
-
-
-*
