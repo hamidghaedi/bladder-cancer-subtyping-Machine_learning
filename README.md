@@ -112,7 +112,7 @@ weighted avg       0.87      0.86      0.85        91
 <img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/decision_tree_1.JPG">
 
 #### Finding the otimal tree depth by cross validation
-<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/tree%20depth.JPG" width="400" height="800">
+<img src="https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/tree%20depth.JPG" width="800" height="400">
 
 #### feature importance:
 
