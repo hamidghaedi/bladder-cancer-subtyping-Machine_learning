@@ -48,7 +48,7 @@ Considering AUC analysis,  these markers found to do a good job in classifying 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/dataset_1.JPG)
 
 ##### Correlation matrix
-This would be helpful to reduce the feature number by keeping one feature from a set of highly correlated (r >= .8) features.
+This would be helpful to reduce the feature number by keeping one feature from a set of highly correlated (r >= .8) features. However in this data set it seems there is no such strong correlation between markers.
 
 ![alt text](https://raw.githubusercontent.com/hamidghaedi/bladder-cancer-tumour-cell-phenotype-classification/main/figs/corrmat.JPG)
 
